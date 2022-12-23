@@ -1,0 +1,35 @@
+﻿@using BookApplication.Models.Entitiy;
+@model  List<TBLAUTHOR>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+@using (Html.BeginForm("Index", "Author", FormMethod.Get))
+{
+    <p>
+        Author Name:@Html.TextBox("p")
+        <input type="submit" ,value="Search" />
+    </p>
+}
+<table class="table table-bordered">
+    <tr>
+        <th>AUTHOR ID</th>
+        <th>AUTHOR NAME</th>
+        <th>AUTHOR AGE</th>
+        <th>AUTHOR GENDER</th>
+        <th>AUTHOR COUNTRY</th>
+    </tr>
+    <tbody>
+        @foreach (var author in Model)
+        {
+            <tr>
+                <td>@author.AUTHORID</td>
+                <td>@author.AUTHORNAME</td>
+                <td>@author.AUTHORAGE</td>
+                <td>@author.AUTHORGENDER</td>
+                <td>@author.AUTHORCOUNTRY</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/AUTHOR/NEWAUTHOR" class="btn btn-success">Add Author</a>

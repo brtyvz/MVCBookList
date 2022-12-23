@@ -1,0 +1,45 @@
+﻿@model BookApplication.Models.Entitiy.TBLBOOKS
+@{
+    ViewBag.Title = "NewBook";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>NewBook</h2>
+
+
+<form method="post" class="form-group">
+
+    <div>
+        <label>
+            Book Name
+        </label>
+        <input type="text" class="form-control" name="BOOKNAME" required="" maxlength="70" />
+
+    </div>
+    <div>
+        <label>
+            Book ISBN
+        </label>
+        <input type="text" class="form-control" name="BOOKISBN" />
+
+    </div>
+    <div>
+        <label>
+            Book Category
+        </label>
+        @Html.DropDownListFor(m=>m.TBLCATEGORIES.CATEGORYID,(List<SelectListItem>)ViewBag.value,new {@class="form-control" })
+
+    </div>
+
+    <div>
+        <label>
+            Book Author
+        </label>
+        <input type="text" class="form-control" name="BOOKAUTHOR"maxlength="80" required="" />
+
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Add Book</button>
+    </div>
+
+

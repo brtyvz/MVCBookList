@@ -1,0 +1,38 @@
+﻿@using BookApplication.Models.Entitiy;
+@model  List<TBLBOOKS>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("Index", "Book", FormMethod.Get))
+{ 
+<p>
+Book Name:@Html.TextBox("p")
+    <input type="submit",value ="Search" />
+</p>
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>BOOK ID</th>
+        <th>BOOK NAME</th>
+        <th>BOOK ISBN</th>
+        <th>BOOK CATEGORY</th>
+        <th>BOOK AUTHOR</th>
+    </tr>
+    <tbody>
+        @foreach (var book in Model)
+        {
+        <tr>
+            <td>@book.BOOKID</td>
+            <td>@book.BOOKNAME</td>
+            <td>@book.BOOKISBN</td>
+            <td>@book.TBLCATEGORIES.CATEGORYNAME</td>
+            <td>@book.BOOKAUTHOR</td>
+        </tr>
+            }
+    </tbody>
+</table>
+<a href="/BOOK/NEWBOOK" class="btn btn-success">Add Book</a>

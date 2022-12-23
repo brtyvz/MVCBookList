@@ -1,0 +1,25 @@
+﻿@using BookApplication.Models.Entitiy;
+@model  List<TBLCATEGORIES>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>CATEGORIE ID</th>
+        <th>CATEGORIE NAME</th>
+    </tr>
+    <tbody>
+        @foreach (var ctgr in Model)
+        { 
+        <tr>
+            <td>@ctgr.CATEGORYID</td>
+            <td>@ctgr.CATEGORYNAME</td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+

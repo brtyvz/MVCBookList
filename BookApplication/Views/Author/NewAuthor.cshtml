@@ -1,0 +1,45 @@
+﻿@model BookApplication.Models.Entitiy.TBLAUTHOR
+@{
+    ViewBag.Title = "NewAuthor";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>NewAuthor</h2>
+
+<form method="post" class="form-group">
+
+    <div>
+        <label>
+            Author Name
+        </label>
+        @Html.TextBoxFor(m => m.AUTHORNAME,new {@class = "form-control" })
+        @Html.ValidationMessageFor(m => m.AUTHORNAME, "",new { @style = "color:red" })
+
+    </div>
+    <div>
+        <label>
+            Author Age
+        </label>
+        <input type="text" class="form-control" name="AUTHORAGE" />
+
+    </div>
+    <div>
+        <label>
+            Author Gender
+        </label>
+        <input type="text" class="form-control" name="AUTHORGENDER" />
+
+    </div>
+
+    <div>
+        <label>
+            Author Country
+        </label>
+        <input type="text" class="form-control" name="AUTHORCOUNTRY" />
+
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Add Author</button>
+    </div>
+
+</form>
