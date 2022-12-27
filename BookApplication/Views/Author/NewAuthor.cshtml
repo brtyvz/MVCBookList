@@ -12,8 +12,8 @@
         <label>
             Author Name
         </label>
-        @Html.TextBoxFor(m => m.AUTHORNAME,new {@class = "form-control" })
-        @Html.ValidationMessageFor(m => m.AUTHORNAME, "",new { @style = "color:red" })
+        @Html.TextBoxFor(m => m.AUTHORNAME, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.AUTHORNAME, "", new { @style = "color:red" })
 
     </div>
     <div>
@@ -24,11 +24,8 @@
 
     </div>
     <div class="form-group">
-        <label>
-            Author Gender
-        </label>
-        <input type="text" class="form-control" name="AUTHORGENDER" />
-
+        <label> Author Gender</label>
+        @Html.DropDownListFor(m => m.TBLGENDER.GENDERID, (List<SelectListItem>)ViewBag.value, new {@class = "form-control" })
     </div>
 
     <div>

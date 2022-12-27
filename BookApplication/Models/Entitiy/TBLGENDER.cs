@@ -12,18 +12,18 @@ namespace BookApplication.Models.Entitiy
     using System;
     using System.Collections.Generic;
     
-    public partial class TBLCATEGORIES
+    public partial class TBLGENDER
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TBLCATEGORIES()
+        public TBLGENDER()
         {
-            this.TBLBOOKS = new HashSet<TBLBOOKS>();
+            this.TBLAUTHOR = new HashSet<TBLAUTHOR>();
         }
     
-        public short CATEGORYID { get; set; }
-        public string CATEGORYNAME { get; set; }
+        public int GENDERID { get; set; }
+        public string GENDERNAME { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBLBOOKS> TBLBOOKS { get; set; }
+        public virtual ICollection<TBLAUTHOR> TBLAUTHOR { get; set; }
     }
 }

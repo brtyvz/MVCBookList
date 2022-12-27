@@ -10,7 +10,7 @@ namespace BookApplication.Controllers
     public class BookController : Controller
     {
         // GET: Book
-        MvcDbLibraryEntities db = new MvcDbLibraryEntities();
+        MvcDbLibraryEntities2 db = new MvcDbLibraryEntities2();
         public ActionResult Index(string p)
         {
             var values = from d in db.TBLBOOKS select d;

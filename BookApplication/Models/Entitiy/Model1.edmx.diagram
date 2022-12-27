@@ -4,11 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2ada1effcbbd45c791e08bd088f295f5" Name="Diagram1">
-        <EntityTypeShape EntityType="MvcDbLibraryModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MvcDbLibraryModel.TBLAUTHOR" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MvcDbLibraryModel.TBLBOOKS" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="MvcDbLibraryModel.TBLCATEGORIES" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+      <Diagram DiagramId="e6de285262ef47019922c6c53c0244bc" Name="Diagram1">
+        <EntityTypeShape EntityType="MvcDbLibraryModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MvcDbLibraryModel.TBLAUTHOR" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MvcDbLibraryModel.TBLBOOKS" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MvcDbLibraryModel.TBLCATEGORIES" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MvcDbLibraryModel.TBLGENDER" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="MvcDbLibraryModel.FK_TBLAUTHOR_TBLGENDER1" ManuallyRouted="false" />
         <AssociationConnector Association="MvcDbLibraryModel.FK_TBLBOOKS_TBLCATEGORIES" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

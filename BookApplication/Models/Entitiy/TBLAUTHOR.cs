@@ -11,15 +11,15 @@ namespace BookApplication.Models.Entitiy
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class TBLAUTHOR
     {
         public int AUTHORID { get; set; }
-        [Required(ErrorMessage = "Author name cannot be empty !")]
         public string AUTHORNAME { get; set; }
         public Nullable<byte> AUTHORAGE { get; set; }
         public Nullable<int> AUTHORGENDER { get; set; }
         public string AUTHORCOUNTRY { get; set; }
+    
+        public virtual TBLGENDER TBLGENDER { get; set; }
     }
 }

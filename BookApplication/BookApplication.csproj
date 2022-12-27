@@ -134,6 +134,7 @@
     <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\GenderController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Enum\GenderEnum.cs" />
     <Compile Include="Global.asax.cs">
@@ -166,6 +167,9 @@
     <Compile Include="Models\Entitiy\TBLCATEGORIES.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entitiy\TBLGENDER.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -179,8 +183,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Models\Entitiy\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\Entitiy\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -227,6 +231,7 @@
     <Content Include="Views\Author\Index.cshtml" />
     <Content Include="Views\Author\NewAuthor.cshtml" />
     <Content Include="Views\Book\NewBook.cshtml" />
+    <Content Include="Views\Gender\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

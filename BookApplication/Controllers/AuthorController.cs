@@ -10,7 +10,7 @@ namespace BookApplication.Controllers
     public class AuthorController : Controller
     {
         // GET: Author
-        MvcDbLibraryEntities db = new MvcDbLibraryEntities();
+        MvcDbLibraryEntities2 db = new MvcDbLibraryEntities2();
         public ActionResult Index(string p)
         {
             var values = from d in db.TBLAUTHOR select d;
@@ -27,21 +27,30 @@ namespace BookApplication.Controllers
 
         [HttpGet]
         public ActionResult NewAuthor() {
+            List<SelectListItem> values = (from i in db.TBLGENDER.ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = i.GENDERNAME,
+                                               Value = i.GENDERID.ToString()
+                                           }).ToList();
+            ViewBag.value = values;
             return View();
+            
         }
 
 
         [HttpPost]
         public ActionResult NewAuthor(TBLAUTHOR p1)
         {
-            if (!ModelState.IsValid)
-            {
-                return View("NewAuthor");
-            }
-
+            //if (!ModelState.IsValid)
+            //{
+            //    return View("NewAuthor");
+            //}
+            var gnd = db.TBLGENDER.Where(m => m.GENDERID == p1.TBLGENDER.GENDERID).FirstOrDefault();
+            p1.TBLGENDER = gnd;
             db.TBLAUTHOR.Add(p1);
             db.SaveChanges();
-            return View();
+            return RedirectToAction("Index");
         }
     }
 }

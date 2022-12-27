@@ -11,12 +11,10 @@ namespace BookApplication.Models.Entitiy
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class TBLBOOKS
     {
         public int BOOKID { get; set; }
-        [Required]
         public string BOOKNAME { get; set; }
         public string BOOKISBN { get; set; }
         public Nullable<short> BOOKCATEGORY { get; set; }

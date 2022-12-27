@@ -1,0 +1,31 @@
+﻿@using BookApplication.Models.Entitiy
+@model List<TBLGENDER>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Gender</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Gender ID</th>
+        <th>Gender Name</th>
+    </tr>
+    <tbody>
+        @foreach (var gnd in Model)
+        { 
+
+        <tr>
+            <td>
+                @gnd.GENDERID
+        </td>
+        <td>
+            @gnd.GENDERNAME
+        </td>
+        </tr>
+        
+           
+        }
+    </tbody>
+</table>

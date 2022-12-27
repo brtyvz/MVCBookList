@@ -13,10 +13,10 @@ namespace BookApplication.Models.Entitiy
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MvcDbLibraryEntities : DbContext
+    public partial class MvcDbLibraryEntities2 : DbContext
     {
-        public MvcDbLibraryEntities()
-            : base("name=MvcDbLibraryEntities")
+        public MvcDbLibraryEntities2()
+            : base("name=MvcDbLibraryEntities2")
         {
         }
     
@@ -29,5 +29,6 @@ namespace BookApplication.Models.Entitiy
         public virtual DbSet<TBLAUTHOR> TBLAUTHOR { get; set; }
         public virtual DbSet<TBLBOOKS> TBLBOOKS { get; set; }
         public virtual DbSet<TBLCATEGORIES> TBLCATEGORIES { get; set; }
+        public virtual DbSet<TBLGENDER> TBLGENDER { get; set; }
     }
 }

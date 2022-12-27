@@ -42,6 +42,25 @@
           <Property Name="CATEGORYID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CATEGORYNAME" Type="varchar" MaxLength="60" />
         </EntityType>
+        <EntityType Name="TBLGENDER">
+          <Key>
+            <PropertyRef Name="GENDERID" />
+          </Key>
+          <Property Name="GENDERID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GENDERNAME" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_TBLAUTHOR_TBLGENDER1">
+          <End Role="TBLGENDER" Type="Self.TBLGENDER" Multiplicity="0..1" />
+          <End Role="TBLAUTHOR" Type="Self.TBLAUTHOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLGENDER">
+              <PropertyRef Name="GENDERID" />
+            </Principal>
+            <Dependent Role="TBLAUTHOR">
+              <PropertyRef Name="AUTHORGENDER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_TBLBOOKS_TBLCATEGORIES">
           <End Role="TBLCATEGORIES" Type="Self.TBLCATEGORIES" Multiplicity="0..1" />
           <End Role="TBLBOOKS" Type="Self.TBLBOOKS" Multiplicity="*" />
@@ -59,6 +78,11 @@
           <EntitySet Name="TBLAUTHOR" EntityType="Self.TBLAUTHOR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLBOOKS" EntityType="Self.TBLBOOKS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLCATEGORIES" EntityType="Self.TBLCATEGORIES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLGENDER" EntityType="Self.TBLGENDER" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TBLAUTHOR_TBLGENDER1" Association="Self.FK_TBLAUTHOR_TBLGENDER1">
+            <End Role="TBLGENDER" EntitySet="TBLGENDER" />
+            <End Role="TBLAUTHOR" EntitySet="TBLAUTHOR" />
+          </AssociationSet>
           <AssociationSet Name="FK_TBLBOOKS_TBLCATEGORIES" Association="Self.FK_TBLBOOKS_TBLCATEGORIES">
             <End Role="TBLCATEGORIES" EntitySet="TBLCATEGORIES" />
             <End Role="TBLBOOKS" EntitySet="TBLBOOKS" />
@@ -88,6 +112,7 @@
           <Property Name="AUTHORAGE" Type="Byte" />
           <Property Name="AUTHORGENDER" Type="Int32" />
           <Property Name="AUTHORCOUNTRY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBLGENDER" Relationship="Self.FK_TBLAUTHOR_TBLGENDER1" FromRole="TBLAUTHOR" ToRole="TBLGENDER" />
         </EntityType>
         <EntityType Name="TBLBOOKS">
           <Key>
@@ -108,6 +133,26 @@
           <Property Name="CATEGORYNAME" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="TBLBOOKS" Relationship="Self.FK_TBLBOOKS_TBLCATEGORIES" FromRole="TBLCATEGORIES" ToRole="TBLBOOKS" />
         </EntityType>
+        <EntityType Name="TBLGENDER">
+          <Key>
+            <PropertyRef Name="GENDERID" />
+          </Key>
+          <Property Name="GENDERID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GENDERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBLAUTHOR" Relationship="Self.FK_TBLAUTHOR_TBLGENDER1" FromRole="TBLGENDER" ToRole="TBLAUTHOR" />
+        </EntityType>
+        <Association Name="FK_TBLAUTHOR_TBLGENDER1">
+          <End Role="TBLGENDER" Type="Self.TBLGENDER" Multiplicity="0..1" />
+          <End Role="TBLAUTHOR" Type="Self.TBLAUTHOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLGENDER">
+              <PropertyRef Name="GENDERID" />
+            </Principal>
+            <Dependent Role="TBLAUTHOR">
+              <PropertyRef Name="AUTHORGENDER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_TBLBOOKS_TBLCATEGORIES">
           <End Role="TBLCATEGORIES" Type="Self.TBLCATEGORIES" Multiplicity="0..1" />
           <End Role="TBLBOOKS" Type="Self.TBLBOOKS" Multiplicity="*" />
@@ -120,11 +165,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="MvcDbLibraryEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MvcDbLibraryEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="TBLAUTHOR" EntityType="Self.TBLAUTHOR" />
           <EntitySet Name="TBLBOOKS" EntityType="Self.TBLBOOKS" />
           <EntitySet Name="TBLCATEGORIES" EntityType="Self.TBLCATEGORIES" />
+          <EntitySet Name="TBLGENDER" EntityType="Self.TBLGENDER" />
+          <AssociationSet Name="FK_TBLAUTHOR_TBLGENDER1" Association="Self.FK_TBLAUTHOR_TBLGENDER1">
+            <End Role="TBLGENDER" EntitySet="TBLGENDER" />
+            <End Role="TBLAUTHOR" EntitySet="TBLAUTHOR" />
+          </AssociationSet>
           <AssociationSet Name="FK_TBLBOOKS_TBLCATEGORIES" Association="Self.FK_TBLBOOKS_TBLCATEGORIES">
             <End Role="TBLCATEGORIES" EntitySet="TBLCATEGORIES" />
             <End Role="TBLBOOKS" EntitySet="TBLBOOKS" />
@@ -135,7 +185,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MvcDbLibraryModelStoreContainer" CdmEntityContainer="MvcDbLibraryEntities">
+        <EntityContainerMapping StorageEntityContainer="MvcDbLibraryModelStoreContainer" CdmEntityContainer="MvcDbLibraryEntities2">
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="MvcDbLibraryModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -174,6 +224,14 @@
               <MappingFragment StoreEntitySet="TBLCATEGORIES">
                 <ScalarProperty Name="CATEGORYID" ColumnName="CATEGORYID" />
                 <ScalarProperty Name="CATEGORYNAME" ColumnName="CATEGORYNAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLGENDER">
+            <EntityTypeMapping TypeName="MvcDbLibraryModel.TBLGENDER">
+              <MappingFragment StoreEntitySet="TBLGENDER">
+                <ScalarProperty Name="GENDERID" ColumnName="GENDERID" />
+                <ScalarProperty Name="GENDERNAME" ColumnName="GENDERNAME" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
