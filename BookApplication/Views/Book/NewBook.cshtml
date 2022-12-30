@@ -40,6 +40,10 @@
     </div>
     <div style="margin-top:15px">
         <button class="btn btn-info">Add Book</button>
+        @if (ViewBag.Message != null && ViewBag.Message == "Exist")
+        {
+            <br /><span style="color:red;">Name already exist.</span>
+        }
     </div>
 
 

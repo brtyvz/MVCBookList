@@ -15,5 +15,11 @@ namespace BookApplication.Controllers
             var values = db.TBLCATEGORIES.ToList();
             return View(values);
         }
+
+        public ActionResult CategoryFilter(int id)
+        {
+            var values = db.TBLBOOKS.Where(x => x.BOOKCATEGORY == id).ToList();
+            return View(values);
+        }
     }
 }

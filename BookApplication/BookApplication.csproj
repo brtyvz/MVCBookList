@@ -232,6 +232,7 @@
     <Content Include="Views\Author\NewAuthor.cshtml" />
     <Content Include="Views\Book\NewBook.cshtml" />
     <Content Include="Views\Gender\Index.cshtml" />
+    <Content Include="Views\Category\CategoryFilter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

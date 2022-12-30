@@ -39,8 +39,22 @@ namespace BookApplication.Controllers
 
 
         [HttpPost]
-        public ActionResult NewBook(TBLBOOKS p1)
+        public ActionResult NewBook(TBLBOOKS p1,string name)
         {
+            // check for existing data
+
+            //var bookname = db.TBLBOOKS.Where(x => x.BOOKNAME == name).FirstOrDefault();
+            //if (bookname != null)
+            //{
+            //    ViewBag.Message = "Exist";
+            //    return View();
+            //}
+            //else
+            //{
+            //    return View("Index");
+            //}
+
+
             var ctg = db.TBLCATEGORIES.Where(m => m.CATEGORYID == p1.TBLCATEGORIES.CATEGORYID).FirstOrDefault();
             p1.TBLCATEGORIES = ctg;
             db.TBLBOOKS.Add(p1);

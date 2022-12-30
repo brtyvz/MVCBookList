@@ -9,6 +9,7 @@
     <tr>
         <th>CATEGORIE ID</th>
         <th>CATEGORIE NAME</th>
+        <th>FILTER BOOKS</th>
     </tr>
     <tbody>
         @foreach (var ctgr in Model)
@@ -16,6 +17,7 @@
         <tr>
             <td>@ctgr.CATEGORYID</td>
             <td>@ctgr.CATEGORYNAME</td>
+            <td><a href="/CATEGORY/CATEGORYFILTER/@ctgr.CATEGORYID" class=" btn btn-primary">Get Books</a></td>
         </tr>
         }
     </tbody>
