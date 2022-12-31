@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -54,12 +55,20 @@ namespace BookApplication.Controllers
             //    return View("Index");
             //}
 
+            try
+            {
+                var ctg = db.TBLCATEGORIES.Where(m => m.CATEGORYID == p1.TBLCATEGORIES.CATEGORYID).FirstOrDefault();
+                p1.TBLCATEGORIES = ctg;
+                db.TBLBOOKS.Add(p1);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
 
-            var ctg = db.TBLCATEGORIES.Where(m => m.CATEGORYID == p1.TBLCATEGORIES.CATEGORYID).FirstOrDefault();
-            p1.TBLCATEGORIES = ctg;
-            db.TBLBOOKS.Add(p1);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            catch(Exception ex) 
+            {
+                TempData["AlertMessage"] = " Existing book cannot be saved!";
+                return RedirectToAction("Index");
+            }
         }
     }
 }

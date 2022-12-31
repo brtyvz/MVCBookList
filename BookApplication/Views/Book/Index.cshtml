@@ -1,6 +1,6 @@
 ﻿@using BookApplication.Models.Entitiy;
 @model  List<TBLBOOKS>
-    
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -16,15 +16,22 @@
 }
 
 @*@using (Html.BeginForm("Index", "Book", FormMethod.Get))
+    {
+        <p>
+            Book Name: @Html.TextBox("p")
+            <input type="submit" value="Search" />
+        </p>
+    }*@
+
+
+@if (TempData["AlertMessage"] != null)
 {
-    <p>
-        Book Name: @Html.TextBox("p")
-        <input type="submit" value="Search" />
-    </p>
-}*@
 
+    <div class=" alert alert-danger">
+        <strong>Error</strong>@TempData["AlertMessage"];
+    </div>
 
-
+}
 
 <table class="table table-bordered">
     <tr>

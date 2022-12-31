@@ -11,6 +11,18 @@
         <input type="submit"value="Search" />
     </p>
 }
+
+@if(TempData["AlertMessage"]!= null)
+{
+
+    <div class=" alert alert-danger">
+        <strong>Error</strong>@TempData["AlertMessage"];
+    </div>
+
+}
+
+
+
 <table class="table table-bordered">
     <tr>
         <th>AUTHOR ID</th>

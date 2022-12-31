@@ -5,29 +5,30 @@
     ViewBag.Title = "CategoryFilter";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
-{
+
 
     <h2>Details</h2>
 
 
-}
+
 
 <table class="table table-bordered">
     <tr>
         <th>BOOK NAME</th>
         <th>BOOK ISBN</th>
         <th>BOOK AUTHOR</th>
-
+        
 
     </tr>
     <tbody>
         @foreach (var ctgr in Model)
         {
-            <tr>
-                <td>@ctgr.BOOKNAME</td>
-                <td>@ctgr.BOOKISBN</td>
-                <td>@ctgr.BOOKAUTHOR</td>
-            </tr>
+        <tr>
+            <td>@ctgr.BOOKNAME</td>
+            <td>@ctgr.BOOKISBN</td>
+            <td>@ctgr.BOOKAUTHOR</td>
+            
+        </tr>
         }
     </tbody>
 </table>

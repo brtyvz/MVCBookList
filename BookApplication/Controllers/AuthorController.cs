@@ -46,11 +46,22 @@ namespace BookApplication.Controllers
             //{
             //    return View("NewAuthor");
             //}
-            var gnd = db.TBLGENDER.Where(m => m.GENDERID == p1.TBLGENDER.GENDERID).FirstOrDefault();
-            p1.TBLGENDER = gnd;
-            db.TBLAUTHOR.Add(p1);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+
+            try
+            {
+                var gnd = db.TBLGENDER.Where(m => m.GENDERID == p1.TBLGENDER.GENDERID).FirstOrDefault();
+                p1.TBLGENDER = gnd;
+                db.TBLAUTHOR.Add(p1);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+
+            }
+            catch(Exception ex)
+            {
+                TempData["AlertMessage"] = " Existing author cannot be saved!";
+                return RedirectToAction("Index");
+            }
+            
         }
     }
 }

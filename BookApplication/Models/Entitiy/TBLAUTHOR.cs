@@ -25,3 +25,4 @@ namespace BookApplication.Models.Entitiy
         public virtual TBLGENDER TBLGENDER { get; set; }
     }
 }
+
